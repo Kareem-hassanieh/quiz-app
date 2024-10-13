@@ -22,15 +22,37 @@ function App() {
 
   ]
 
-  
-  const [currentQuestion,setQurrentQuestion]=useState(0);
-  const [score,setScore]=useState(0);
-  const [currentImageIndex,setQurrentImageIndex]=useState(0)
 
+  const [currentQuestion, setQurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [currentImageIndex, setQurrentImageIndex] = useState(0)
 
   return (
     <>
-      <div></div>
+
+      <div className="question-container">
+        <h2>{questions[currentQuestion].question}</h2>
+
+
+        <div className="options-container">
+
+          {questions[currentQuestion].options.map((option, index) => (
+            <button key={index}>{option}</button>
+          ))}
+        </div>
+        <button className="next-button">Next</button> 
+        
+        <p>Score:</p>
+
+       
+
+      </div>
+
+
+
+
+
+
 
     </>
   )
