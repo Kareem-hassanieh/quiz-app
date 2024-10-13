@@ -5,11 +5,27 @@ import './App.css'
 
 function App() {
 
+  const questions = [
+    {
+      question: "what is the capital of columbia",
+      options: ["Berlin", "Bogatta", "paris", "Beirut"],
+      answer: "Bogatta"
+    },
+
+
+    {
+
+      question: "what is the longest tower in the world",
+      options: ["burj khalifa", "paris tower", "Beirut tower", "shanghai tower"],
+      answer: "Bogatta"
+    }
+  ]
+
 
   return (
     <>
-    <div></div>
-     
+      <div></div>
+
     </>
   )
 }
