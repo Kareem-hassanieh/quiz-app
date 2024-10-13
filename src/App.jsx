@@ -19,7 +19,13 @@ function App() {
       options: ["burj khalifa", "paris tower", "Beirut tower", "shanghai tower"],
       answer: "Bogatta"
     }
+
   ]
+
+  
+  const [currentQuestion,setQurrentQuestion]=useState(0);
+  const [score,setScore]=useState(0);
+  const [currentImageIndex,setQurrentImageIndex]=useState(0)
 
 
   return (
