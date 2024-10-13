@@ -17,36 +17,57 @@ function App() {
 
       question: "what is the longest tower in the world",
       options: ["burj khalifa", "paris tower", "Beirut tower", "shanghai tower"],
-      answer: "Bogatta"
+      answer: "shanghai tower"
     }
 
   ]
 
 
-  const [currentQuestion, setQurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [currentImageIndex, setQurrentImageIndex] = useState(0)
+  const [hasAnswered,setHasAnswered]=useState(false);
 
-  return (
-    <>
+  function handleOptionClick(option) {
 
-      <div className="question-container">
-        <h2>{questions[currentQuestion].question}</h2>
+    if(!hasAnswered){
+      if (option === questions[currentQuestion].answer) {
+        setScore(score + 1);
+      }
+      setHasAnswered(true);
+      }
 
 
-        <div className="options-container">
 
-          {questions[currentQuestion].options.map((option, index) => (
-            <button key={index}>{option}</button>
-          ))}
-        </div>
-        <button className="next-button">Next</button> 
-        
-        <p>Score:</p>
+  
+  }
 
-       
+  function handleNextQuestion(){
+    setCurrentQuestion(currentQuestion+1);
+    setHasAnswered(false);
+  }
 
+
+return (
+  <>
+
+    <div className="question-container">
+      <h2>{questions[currentQuestion].question}</h2>
+
+
+      <div className="options-container">
+
+        {questions[currentQuestion].options.map((option, index) => (
+          <button key={index} onClick={() => handleOptionClick(option)}  disabled={hasAnswered}>{option}</button>
+        ))}
       </div>
+      <button className="next-button" onClick={handleNextQuestion}>Next</button>
+
+      <p>Score:{score}</p>
+
+
+
+    </div>
 
 
 
@@ -54,8 +75,8 @@ function App() {
 
 
 
-    </>
-  )
+  </>
+)
 }
 
 export default App
